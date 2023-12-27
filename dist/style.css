@@ -27,8 +27,22 @@ body{
     border: 1px solid black;
     border-radius: 0.3rem;
 }
+.infoPage{
+    width: 60%;
+    height: 70%;
+    background-color: pink;
+    display: flex;
+}
+.infoBook{
+    height: 100%;
+    width: 40%;
+    background-color: red;
+}
 
-
+.infoDetails {
+    width: 60%;
+    background-color: pink;
+}
 .hidden{
     display: none;
 }
