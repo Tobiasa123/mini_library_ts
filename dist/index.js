@@ -13,6 +13,7 @@ const mainWrapper = document.querySelector('.mainWrapper');
 const infoPage = document.querySelector('.infoPage');
 const exitButton = document.querySelector('.exitButton');
 const mainHeader = document.querySelector('.mainHeader');
+const body = document.querySelector('body');
 //funktion som tar book infon och applyar den till elementen på infosidan
 //funktionen används i applydata i en eventlistener
 function addBookDetails(book) {
@@ -38,6 +39,7 @@ function addBookDetails(book) {
 function getData() {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books');
+        //säg att datan vi får tillbaka ska vara en array av books
         let data = yield response.json();
         //logga data
         console.log(data);
@@ -45,7 +47,7 @@ function getData() {
             console.log(element.title);
         });
         //här applyar jag datan från min andra funktion
-        //input ska vara av typ Book
+        //input ska vara av typ Book, och vi säger att fen fetchade datan är book ovan
         applyData(data);
         return data;
     });
@@ -63,24 +65,29 @@ function applyData(myData) {
         //lägg till book detaljerna till infosidan när en klickas
         currentBook.addEventListener('click', () => {
             addBookDetails(book);
+            body.style.backgroundColor = "rgb(36, 35, 35)";
         });
     });
 }
 //lägg till klick event på alla books
 function clickBook() {
     allBooks.forEach(element => {
-        element.addEventListener('click', e => {
-            element.style.backgroundColor = "red";
-            mainWrapper.classList.add('hidden');
-            mainHeader.classList.add('hidden');
-            infoPage.classList.toggle('hidden');
-            exitButton.classList.toggle('hidden');
-        });
+        //kollar om det verkligen är ett html element
+        if (element instanceof HTMLElement) {
+            element.addEventListener('click', e => {
+                element.style.opacity = "0.8";
+                mainWrapper.classList.add('hidden');
+                mainHeader.classList.add('hidden');
+                infoPage.classList.toggle('hidden');
+                exitButton.classList.toggle('hidden');
+            });
+        }
     });
 }
 clickBook();
 function clickExitButton() {
     exitButton === null || exitButton === void 0 ? void 0 : exitButton.addEventListener('click', e => {
+        body.style.backgroundColor = "lightblue";
         mainWrapper.classList.toggle('hidden');
         mainHeader.classList.toggle('hidden');
         infoPage.classList.toggle('hidden');

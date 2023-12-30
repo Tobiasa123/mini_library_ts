@@ -9,6 +9,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: lightblue;
 }
 .mainWrapper{
     width: 60%;
@@ -26,6 +27,14 @@ body{
     background-color: coral;
     border: 1px solid black;
     border-radius: 0.3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: 0.1s ease-in-out;
+}
+.books:hover{
+    transform: scale(1.05);
 }
 .infoPage{
     width: 60%;
@@ -37,11 +46,38 @@ body{
     height: 100%;
     width: 40%;
     background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
 }
 
 .infoDetails {
     width: 60%;
     background-color: pink;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+.infoPara{
+}
+.moreInfo{
+    background-color: lightblue;
+}
+.exitButton{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    position: absolute;
+    margin: 1rem;
+    transition: 0.2s ease-in-out;
+}
+.exitButton:hover{
+    transform: scale(1.1);
 }
 .hidden{
     display: none;
