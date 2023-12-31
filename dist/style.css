@@ -9,64 +9,132 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: rgb(240, 240, 240);
 }
 .mainWrapper{
     width: 60%;
     height: 70%;
-    background-color: lightblue;
+    /*background-color: lightblue;*/
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
 }
+.mainHeader{
+   font-size: 3rem;
+   margin: 1rem;
+}
 .books{
     width: 100%;
     height: 100%;
-    background-color: coral;
     border: 1px solid black;
     border-radius: 0.3rem;
+    position: relative; 
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     transition: 0.1s ease-in-out;
 }
+.books h2{
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+}
+.books p{
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+}
+/*linjen*/
+.books::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1rem; /* Adjust this value to move the line left or right */
+    width: 0.2rem; /* Width of the line */
+    opacity: 0.5;
+    background-color: black; /* Color of the line */
+}
+  
+.book-1{
+    background: linear-gradient(45deg, green 90%, rgba(255,255,255,1) 90%);
+}
+.book-2{
+    background: linear-gradient(45deg, orange 90%, rgba(255,255,255,1) 90%);
+}
+.book-3{
+    background: linear-gradient(45deg, purple 90%, rgba(255,255,255,1) 90%);
+}
+.book-4{
+    background: linear-gradient(45deg, grey 90%, rgba(255,255,255,1) 90%);
+}
+.book-5{
+    background: linear-gradient(45deg, coral 90%, rgba(255,255,255,1) 90%);
+}
+.book-6{
+    background: linear-gradient(45deg, lightskyblue 90%, rgba(255,255,255,1) 90%);
+}
+.book-7{
+    background: linear-gradient(45deg, gold 90%, rgba(255,255,255,1) 90%);
+}
+.book-8{
+    background: linear-gradient(45deg, rgba(0,69,255,1) 90%, rgba(255,255,255,1) 90%);
+}
 .books:hover{
     transform: scale(1.05);
 }
 .infoPage{
-    width: 60%;
+    width: 80%;
     height: 70%;
-    background-color: pink;
     display: flex;
 }
 .infoBook{
     height: 100%;
     width: 40%;
-    background-color: red;
+    background-color: grey;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
-
+    justify-content: flex-end;
+}
+.infoBook h1{
+    margin-left: 1rem;
+    font-size: 2.5rem;  
+}
+.infoBook p{
+    margin-left: 1rem;
+    margin-bottom: 2rem;
 }
 
 .infoDetails {
     width: 60%;
     background-color: pink;
-
+    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+.infoTitle p{
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 .infoPara{
 }
 .moreInfo{
     background-color: lightblue;
+    margin-top: auto;
+}
+
+.infoPublished{
+    position: absolute;
+    margin-left: 5rem;
+}
+.infoPublisher{
+    position: absolute;
+    margin-left: 5rem;
 }
 .exitButton{
     height: 5rem;

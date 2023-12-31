@@ -19,17 +19,21 @@ const body = document.querySelector('body');
 function addBookDetails(book) {
     const infoBook = document.querySelector('.infoBook');
     const infoTitle = document.querySelector('.infoTitle');
-    const author = document.querySelector('.author');
+    //const author = document.querySelector('.author') as HTMLElement;
     const infoPara = document.querySelector('.infoPara');
     const infoAudience = document.querySelector('.infoAudience');
     const infoPublished = document.querySelector('.infoPublished');
     const infoPagesNum = document.querySelector('.infoPagesNum');
     const infoPublisher = document.querySelector('.infoPublisher');
     // Update info page elements with book details
-    infoBook.innerHTML = `<h2>${book.title}</h2>`;
-    infoTitle.textContent = book.title;
-    author.textContent = `by ${book.author}`;
-    infoPara.textContent = book.plot;
+    infoBook.innerHTML =
+        `<h1>${book.title}</h1>
+    <p>${book.author}</p>`;
+    infoBook.style.backgroundColor = "red"; //here i want the color of the
+    infoTitle.innerHTML =
+        `<h1>${book.title}</h1>
+    <p>By ${book.author}</p>`;
+    infoPara.textContent = `${book.plot}`;
     infoAudience.textContent = `Audience: ${book.audience}`;
     infoPublished.textContent = `First published: ${book.year}`;
     infoPagesNum.textContent = `Pages: ${book.pages}`;
@@ -61,7 +65,9 @@ function applyData(myData) {
         let currentBook = allBooks[index];
         //lägg till title som vi har i vårt interface, om jag vill lägga till något annat än just title måste jag ändra det i interface först
         //detta ät itteln som visas i mainwrappern
-        currentBook.innerHTML = `<h2>${book.title}</h2>`;
+        currentBook.innerHTML =
+            `<h2>${book.title}</h2>
+        <p>${book.author}</p>`;
         //lägg till book detaljerna till infosidan när en klickas
         currentBook.addEventListener('click', () => {
             addBookDetails(book);
@@ -87,7 +93,7 @@ function clickBook() {
 clickBook();
 function clickExitButton() {
     exitButton === null || exitButton === void 0 ? void 0 : exitButton.addEventListener('click', e => {
-        body.style.backgroundColor = "lightblue";
+        body.style.backgroundColor = "inherit";
         mainWrapper.classList.toggle('hidden');
         mainHeader.classList.toggle('hidden');
         infoPage.classList.toggle('hidden');
