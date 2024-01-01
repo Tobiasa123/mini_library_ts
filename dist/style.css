@@ -57,33 +57,9 @@ body{
     opacity: 0.5;
     background-color: black; /* Color of the line */
 }
-  
-.book-1{
-    background: linear-gradient(45deg, green 90%, rgba(255,255,255,1) 90%);
-}
-.book-2{
-    background: linear-gradient(45deg, orange 90%, rgba(255,255,255,1) 90%);
-}
-.book-3{
-    background: linear-gradient(45deg, purple 90%, rgba(255,255,255,1) 90%);
-}
-.book-4{
-    background: linear-gradient(45deg, grey 90%, rgba(255,255,255,1) 90%);
-}
-.book-5{
-    background: linear-gradient(45deg, coral 90%, rgba(255,255,255,1) 90%);
-}
-.book-6{
-    background: linear-gradient(45deg, lightskyblue 90%, rgba(255,255,255,1) 90%);
-}
-.book-7{
-    background: linear-gradient(45deg, gold 90%, rgba(255,255,255,1) 90%);
-}
-.book-8{
-    background: linear-gradient(45deg, rgba(0,69,255,1) 90%, rgba(255,255,255,1) 90%);
-}
 .books:hover{
     transform: scale(1.05);
+    cursor: pointer;
 }
 .infoPage{
     width: 80%;
@@ -146,6 +122,7 @@ body{
 }
 .exitButton:hover{
     transform: scale(1.1);
+    cursor: pointer;
 }
 .hidden{
     display: none;

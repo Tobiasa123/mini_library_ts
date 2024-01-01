@@ -6,7 +6,9 @@ interface Book {
     audience: string,
     year: number,
     pages: number,
-    publisher: string
+    publisher: string,
+    id: number,
+    color: string
 }
 
 export{Book}

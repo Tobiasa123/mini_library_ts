@@ -16,7 +16,8 @@ const mainHeader = document.querySelector('.mainHeader');
 const body = document.querySelector('body');
 //funktion som tar book infon och applyar den till elementen på infosidan
 //funktionen används i applydata i en eventlistener
-function addBookDetails(book) {
+//även color vill vi lägga till
+function addBookDetails(book, color) {
     const infoBook = document.querySelector('.infoBook');
     const infoTitle = document.querySelector('.infoTitle');
     //const author = document.querySelector('.author') as HTMLElement;
@@ -25,11 +26,12 @@ function addBookDetails(book) {
     const infoPublished = document.querySelector('.infoPublished');
     const infoPagesNum = document.querySelector('.infoPagesNum');
     const infoPublisher = document.querySelector('.infoPublisher');
-    // Update info page elements with book details
+    //ge info till små böckerna
     infoBook.innerHTML =
         `<h1>${book.title}</h1>
     <p>${book.author}</p>`;
-    infoBook.style.backgroundColor = "red"; //here i want the color of the
+    //här får infobook färgen av valda boken från parametern i denna funktion
+    infoBook.style.backgroundColor = color;
     infoTitle.innerHTML =
         `<h1>${book.title}</h1>
     <p>By ${book.author}</p>`;
@@ -51,26 +53,54 @@ function getData() {
             console.log(element.title);
         });
         //här applyar jag datan från min andra funktion
-        //input ska vara av typ Book, och vi säger att fen fetchade datan är book ovan
+        //input ska vara av typ Book, och vi säger att den fetchade datan är book h'r ovan
         applyData(data);
         return data;
     });
 }
 getData();
 //apply data array på books från skapat interface
-//jsut nu har book bara title som attribut
 function applyData(myData) {
     myData.forEach((book, index) => {
         //allBooks är html element
         let currentBook = allBooks[index];
         //lägg till title som vi har i vårt interface, om jag vill lägga till något annat än just title måste jag ändra det i interface först
-        //detta ät itteln som visas i mainwrappern
         currentBook.innerHTML =
             `<h2>${book.title}</h2>
         <p>${book.author}</p>`;
+        //lägg till färg på de små böckerna
+        switch (book.id) {
+            case 1:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 2:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 3:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 4:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 5:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 6:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 7:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            case 8:
+                currentBook.style.backgroundColor = book.color;
+                break;
+            default:
+                console.log("outta bounds");
+                break;
+        }
         //lägg till book detaljerna till infosidan när en klickas
         currentBook.addEventListener('click', () => {
-            addBookDetails(book);
+            addBookDetails(book, book.color);
             body.style.backgroundColor = "rgb(36, 35, 35)";
         });
     });
@@ -80,8 +110,8 @@ function clickBook() {
     allBooks.forEach(element => {
         //kollar om det verkligen är ett html element
         if (element instanceof HTMLElement) {
-            element.addEventListener('click', e => {
-                element.style.opacity = "0.8";
+            element.addEventListener('click', () => {
+                //element.style.opacity = "0.6"
                 mainWrapper.classList.add('hidden');
                 mainHeader.classList.add('hidden');
                 infoPage.classList.toggle('hidden');
@@ -92,7 +122,7 @@ function clickBook() {
 }
 clickBook();
 function clickExitButton() {
-    exitButton === null || exitButton === void 0 ? void 0 : exitButton.addEventListener('click', e => {
+    exitButton === null || exitButton === void 0 ? void 0 : exitButton.addEventListener('click', () => {
         body.style.backgroundColor = "inherit";
         mainWrapper.classList.toggle('hidden');
         mainHeader.classList.toggle('hidden');
