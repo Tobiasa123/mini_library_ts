@@ -13,7 +13,7 @@ const body = document.querySelector('body') as HTMLElement
 //funktion som tar book infon och applyar den till elementen på infosidan
 //funktionen används i applydata i en eventlistener
 //även color vill vi lägga till
-function addBookDetails(book: Book, color: string) {
+function addBookDetails(book: Book, color: string): void {
     const infoBook = document.querySelector('.infoBook') as HTMLElement;
     const infoTitle = document.querySelector('.infoTitle') as HTMLElement;
     //const author = document.querySelector('.author') as HTMLElement;
@@ -65,7 +65,7 @@ async function getData(): Promise<any> {
 getData()
 
 //apply data array på books från skapat interface
-function applyData(myData: Book[]){
+function applyData(myData: Book[]): void{
 
     myData.forEach((book: Book, index: number) => {
         //allBooks är html element
@@ -111,7 +111,7 @@ function applyData(myData: Book[]){
 
             addBookDetails(book, book.color);
 
-            body.style.backgroundColor = "rgb(36, 35, 35)"
+            body.style.backgroundColor = "rgb(20, 20, 20)"
         });
         
     });
@@ -136,7 +136,7 @@ clickBook()
 
 function clickExitButton(): void{
     exitButton?.addEventListener('click', () => {
-        body.style.backgroundColor = "inherit"
+        body.style.backgroundColor = "#16284b"
         mainWrapper.classList.toggle('hidden')
         mainHeader.classList.toggle('hidden')
         infoPage.classList.toggle('hidden')

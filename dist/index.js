@@ -101,7 +101,7 @@ function applyData(myData) {
         //lägg till book detaljerna till infosidan när en klickas
         currentBook.addEventListener('click', () => {
             addBookDetails(book, book.color);
-            body.style.backgroundColor = "rgb(36, 35, 35)";
+            body.style.backgroundColor = "rgb(20, 20, 20)";
         });
     });
 }
@@ -123,7 +123,7 @@ function clickBook() {
 clickBook();
 function clickExitButton() {
     exitButton === null || exitButton === void 0 ? void 0 : exitButton.addEventListener('click', () => {
-        body.style.backgroundColor = "inherit";
+        body.style.backgroundColor = "#16284b";
         mainWrapper.classList.toggle('hidden');
         mainHeader.classList.toggle('hidden');
         infoPage.classList.toggle('hidden');
