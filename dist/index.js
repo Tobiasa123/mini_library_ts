@@ -44,18 +44,23 @@ function addBookDetails(book, color) {
 //fetcha data async await
 function getData() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books');
-        //säg att datan vi får tillbaka ska vara en array av books
-        let data = yield response.json();
-        //logga data
-        console.log(data);
-        data.forEach((element) => {
-            console.log(element.title);
-        });
-        //här applyar jag datan från min andra funktion
-        //input ska vara av typ Book, och vi säger att den fetchade datan är book h'r ovan
-        applyData(data);
-        return data;
+        try {
+            let response = yield fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books');
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            //säg att datan vi får tillbaka ska vara en array av books
+            let data = yield response.json();
+            //logga data array
+            console.log(data);
+            //här applyar jag datan från min andra funktion
+            //input ska vara av typ Book, och vi säger att den fetchade datan är book h'r ovan
+            applyData(data);
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+        }
     });
 }
 getData();

@@ -46,21 +46,30 @@ function addBookDetails(book: Book, color: string): void {
 
 //fetcha data async await
 async function getData(): Promise<any> {
-    let response = await fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books')
-    //säg att datan vi får tillbaka ska vara en array av books
-    let data: Book[] = await response.json()
 
-    //logga data
-    console.log(data)
-    data.forEach((element: any) => {
-        console.log(element.title)
-    });
+    try {
+        let response = await fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books')
 
-    //här applyar jag datan från min andra funktion
-    //input ska vara av typ Book, och vi säger att den fetchade datan är book h'r ovan
-    applyData(data);
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+         //säg att datan vi får tillbaka ska vara en array av books
+        let data: Book[] = await response.json()
 
-    return data;
+        //logga data array
+        console.log(data)
+
+        //här applyar jag datan från min andra funktion
+        //input ska vara av typ Book, och vi säger att den fetchade datan är book h'r ovan
+        applyData(data);
+
+        return data;
+
+    } catch (error) {
+        console.log(error)    
+    }
+    
+
 }
 getData()
 
