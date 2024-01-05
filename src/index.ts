@@ -45,7 +45,7 @@ function addBookDetails(book: Book, color: string): void {
 
 
 //fetcha data async await
-async function getData(): Promise<any> {
+async function getData(): Promise<Book[]> {
 
     try {
         let response = await fetch('https://my-json-server.typicode.com/zocom-christoffer-wallenberg/books-api/books')
@@ -66,14 +66,12 @@ async function getData(): Promise<any> {
         return data;
 
     } catch (error) {
-        console.log(error)    
-    }
-    
-
+        console.log(error)  
+        throw error;  
+    } 
 }
 getData()
 
-//apply data array på books från skapat interface
 function applyData(myData: Book[]): void{
 
     myData.forEach((book: Book, index: number) => {

@@ -60,11 +60,11 @@ function getData() {
         }
         catch (error) {
             console.log(error);
+            throw error;
         }
     });
 }
 getData();
-//apply data array på books från skapat interface
 function applyData(myData) {
     myData.forEach((book, index) => {
         //allBooks är html element

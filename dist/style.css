@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -16,6 +19,9 @@ body{
     height: 70%;
     /*background-color: lightblue;*/
 
+    font-family: 'Roboto Mono', monospace;
+
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -26,9 +32,11 @@ body{
 /* ANIMATED TEXT */
 
 .mainHeader{
-   font-size: 3rem;
+   font-size: 4rem;
    margin: 1rem;
    color: white;
+   font-family: 'Roboto Mono', monospace;
+   font-weight: 400;
 }
 .mainHeader span{
     position: relative;
@@ -39,21 +47,25 @@ body{
     /*words och typing måste vara lika lång tid för timing*/
     animation: words 10s infinite;
 }
+/*detta är min fake cursor*/
 .mainHeader span::after{
     content: "";
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
     background-color: #16284b;
-    border-left: 3px solid coral;
+    border-left: 4px solid coral;
     right: -8px;
+    /*steps är hur smooth det ska se ut basically, vill inte ha den för smooth här*/
     animation: cursor .8s infinite, typing 10s steps(15) infinite;
 }
+/*pulse effekten för cursorn*/
 @keyframes cursor {
     to{
-        border-left: 2px solid #16284b;
+        border-left: 3px solid #16284b;
     }
 }
+/*ska ha 2 olika ord som ska ändras mellan, man kan ha mer men då måste man jutera typing % etc */
 @keyframes words {
     0%, 50% {
         content: "childrens books";
@@ -62,8 +74,7 @@ body{
         content: "books for kids";
     }
 }
-
-/*timing med ord etc (svårast)*/
+/*keyframe för typing animation*/
 @keyframes typing {
     10%,45%,60%,95%{
         width: 0;
@@ -116,6 +127,7 @@ body{
     width: 80%;
     height: 70%;
     display: flex;
+    font-family: 'Roboto Mono', monospace;
 }
 .infoBook{
     height: 100%;
@@ -176,6 +188,9 @@ body{
     position: absolute;
     margin: 1rem;
     transition: 0.2s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.608);
+    color: white;
+    border: none;
 }
 .exitButton:hover{
     transform: scale(1.1);
